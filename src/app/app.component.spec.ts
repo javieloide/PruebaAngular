@@ -3,6 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
+  let component : AppComponent;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
@@ -12,9 +13,11 @@ describe('AppComponent', () => {
         AppComponent
       ],
     }).compileComponents();
+
+    component = new AppComponent()
   });
 
-  it('should create the app', () => {
+  /*it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
@@ -31,5 +34,10 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('.content span').textContent).toContain('PruebaAngular app is running!');
-  });
+  });*/
+
+  it ("La variable title debe contener el nombre del proyecto", () => {
+    let myVar : string = component.title;
+    expect(myVar).toEqual('PruebaAngular')
+  })
 });
