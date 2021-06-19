@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NasaService } from 'src/app/services/nasa.service';
-import { element } from 'protractor';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,7 +10,7 @@ import { element } from 'protractor';
 export class DashboardComponent implements OnInit {
   listNasaApi:any = [];
   displayedColumns: string[] = ['date', 'url', 'title'];
-  constructor(private nasaService:NasaService) {
+  constructor(private nasaService: NasaService, private router: Router) {
     this.nasaService.getLastSixDays().subscribe(resp => {
       this.listNasaApi = resp;
       console.log(this.listNasaApi);

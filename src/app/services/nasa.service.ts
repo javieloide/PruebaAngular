@@ -1,4 +1,4 @@
-import { Injectable, ɵɵtrustConstantResourceUrl } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -7,9 +7,7 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 export class NasaService {
   apiUrl = 'https://api.nasa.gov/planetary/apod?api_key=zdUP8ElJv1cehFM0rsZVSQN7uBVxlDnu4diHlLSb';
 
-  constructor(private http: HttpClient) {
-    console.log("servicio nasa");
-  }
+  constructor(private http: HttpClient) {  }
 
   getDataExample(){
     let header = new HttpHeaders()
@@ -26,6 +24,10 @@ export class NasaService {
     let header = new HttpHeaders()
       .set('Type-content', 'aplication/json');
       return this.http.get(this.apiUrl+"&start_date="+startDate+"&end_date="+endDate, {headers:header});
-
+  }
+  getDataByDate(date:string){
+    let header = new HttpHeaders()
+    .set('Type-content', 'aplication/json');
+  return this.http.get(this.apiUrl+"&date="+date, {headers:header});
   }
 }

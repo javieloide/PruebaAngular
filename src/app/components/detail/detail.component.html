@@ -1,0 +1,16 @@
+<div style="margin:auto; text-align: center;">
+<h1>Detalle</h1>
+  <mat-card class="example-card" style="width: 50%; margin:auto; text-align: center;">
+    <img mat-card-image src="{{data.url}}">
+    <mat-card-content>
+      <p style="font-size: 20px;">
+        {{data.explanation}}
+      </p>
+    </mat-card-content>
+  </mat-card>
+  <button mat-raised-button color="primary" (click)="toDashboard()">
+    <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon> Dashboard
+  </button>
+</div>
+
+
