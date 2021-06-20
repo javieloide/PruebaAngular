@@ -9,7 +9,7 @@ import { NasaService } from '../../services/nasa.service';
 })
 export class DetailComponent implements OnInit {
   fecha: string;
-  data: any;
+  data: any = {};
   constructor(
       private router:Router,
       private actRoute: ActivatedRoute,
